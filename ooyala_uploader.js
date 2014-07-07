@@ -289,7 +289,7 @@
 
     MovieUploader.prototype.onAssetCreated = function(assetCreationResponse) {
       var parsedResponse;
-      parsedResponse = JSON.parse(assetCreationResponse);
+      parsedResponse = assetCreationResponse;//JSON.parse(assetCreationResponse);
       this.assetMetadata.assetID = parsedResponse.embed_code;
       /*
       Note: It could take some time for the asset to be copied. Send the upload ready callback
@@ -375,7 +375,7 @@
 
     MovieUploader.prototype.onUploadUrlsReceived = function(uploadingUrlsResponse) {
       var parsedUploadingUrl;
-      parsedUploadingUrl = JSON.parse(uploadingUrlsResponse);
+      parsedUploadingUrl = uploadingUrlsResponse;//JSON.parse(uploadingUrlsResponse);
       this.totalChunks = parsedUploadingUrl.length;
       if (this.uploaderType === "HTML5") {
         return this.startHTML5Upload(parsedUploadingUrl);
