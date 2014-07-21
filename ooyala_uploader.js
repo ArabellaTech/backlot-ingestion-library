@@ -93,7 +93,7 @@
         uploaderType: this.uploaderType
       });
       movieUploader.uploadFile(file, options);
-      return true;
+      return movieUploader;
     };
 
     OoyalaUploader.prototype.embedCodeReady = function(assetID) {
@@ -163,7 +163,7 @@
         swfUploader: this.swfUploader
       });
       movieUploader.uploadFileUsingFlash(options);
-      return true;
+      return movieUploader;
     };
 
     OoyalaUploader.prototype.html5UploadSupported = typeof FileReader !== "undefined" && FileReader !== null;
