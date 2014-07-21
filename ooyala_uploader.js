@@ -198,7 +198,7 @@
       if (this.uploaderType === "Flash") {
         this.swfUploader = options.swfUploader;
       }
-      this.chunkUploaders = {};
+      this.chunkUploaders = [];
       this.completedChunkIndexes = [];
       this.completedChunks = 0;
       this.totalChunks;
@@ -532,7 +532,8 @@
       this.xhr.addEventListener("load", this.onXhrLoad);
       this.xhr.addEventListener("error", this.onXhrError);
       this.xhr.open("PUT", this.uploadUrl);
-      return this.xhr.send(this.chunk);
+      this.xhr.send(this.chunk);
+      return this.xhr;
     };
 
     ChunkUploader.prototype.onXhrLoad = function(xhr) {
